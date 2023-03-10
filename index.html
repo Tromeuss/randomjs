@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <script>
+    
+        /*
+
+
+        const phrase = "Vous savez, je ne crois pas qu'il n'y est de bonne ou de mauvaise situation en vraie de vraie a partir de maintenant je dit de la merde"
+
+        const frequence = {}
+        const words = phrase.toLowerCase().replace(',', '').replace('!', '').replace('"', '').replace('.', '').split(' ')
+
+
+        console.log(words)
+
+
+
+        for (let word of words){
+            if(frequence[word]){
+                frequence[word]++
+            } else {
+                frequence[word] = 1
+            }
+        }
+
+        console.log(frequence)
+
+
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+class Book {
+
+
+    page = 0
+
+    constructor(name, pages){
+        this.name = name
+        this.pages = pages
+        
+    }
+
+    
+
+    get page (){
+        return this.page
+    }
+
+   
+
+    nextPage(){
+        if (this.page <= this.pages){
+            this.page++
+        } 
+    }
+
+    close(){
+        this.page = 0
+    }
+
+}
+
+class Library{
+
+
+    books = []
+
+
+    addBook(book){
+        this.books.push(book)
+    }
+
+    addBooks(books){
+        for(let book of books){
+            this.addBook(book)
+        }
+    }
+
+
+    findBooksByLetter(letter){
+        const found = []
+
+        for(let book of this.books){
+            if (book.name[0].toLowerCase() === letter.toLowerCase()){
+                found.push(book)
+            }
+        }
+        return found
+    }
+}
+
+
+
+
+
+const b = new Book('Seigneur des anneaux', 200);
+console.log(b.page)
+b.nextPage()
+console.log(b.page)
+b.close()
+console.log(b.page)
+
+const l = new Library()
+l.addBook(b)
+l.addBooks([
+    new Book('Ready player one', 100),
+    new Book('Oui-oui', 10),
+    new Book('Sillage', 50),
+])
+console.log(l.findBooksByLetter('S'))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+    class Rectangle{
+
+        constructor(width, height){
+            this.width = width
+            this.height = height
+        }
+
+        get perimetre (){
+            return this.width*2 + this.height*2
+        }
+
+        get isValid (){
+            return this.width > 0 && this.height > 0
+        }
+
+    }
+
+    class Square extends Rectangle{
+        constructor(width){
+            super(width, width)
+        }
+
+        isBiggerThan(shape){
+            return this.perimetre > shape.perimetre
+
+        }
+    }
+
+
+    const r2 = new Rectangle(10,20)
+    const r = new Rectangle(-10, 20)
+    const c = new Square(20)
+    
+    console.log(r2.perimetre)
+    console.log(r.isValid)
+    console.log(r.perimetre)
+    console.log(c.perimetre)
+    console.log(c.isBiggerThan(r2))
+
+*/
+
+
+
+
+
+  /* 
+        const éléves = [{
+            name: 'John',
+            notes: [1, 20, 18, 19, 12]
+        },
+        {
+            name: 'Jane',
+            notes: [17, 18, 20, 13, 15]
+        },
+        {
+            name: 'Sophie',
+            notes: [17, 12, 14, 15, 13]
+        },
+        {
+            name: 'Marc',
+            notes: [2, 3, 5, 8, 9]
+        },
+        {
+            name: 'Manon',
+            notes: [18, 17, 18, 19, 12]
+        },
+         
+
+
+        ]
+
+
+        
+
+        function moyenne(notes) {
+            let total = 0
+            for (let note of notes) {
+                total = total + note
+            }
+            return total / notes.length
+        }
+
+        for (let éléve of éléves){
+            éléve.moyenne = moyenne(éléve.notes)
+        }
+
+        function FormatStudent (éléve){
+            return `${éléve.name} avec une moyenne de ${éléve.moyenne}`
+        }
+
+        function CompareStudent(a, b){
+            return b.moyenne - a.moyenne
+        }
+            
+        function maximum(éléve){
+            return Math.max(...éléve.notes)
+        }
+        
+        function minimum(éléve){
+            return Math.min(...éléve.notes)
+        }
+
+
+
+
+        éléves.sort(CompareStudent)
+
+        console.log("Top 3 des meilleurs étudiant : \n")
+
+
+        console.log(`Top 3 : ${FormatStudent(éléves[2])}`)
+        console.log(`Top 2 : ${FormatStudent(éléves[1])}`)
+        console.log(`Top 1 : ${FormatStudent(éléves[0])}`)
+
+        console.log("plus d'information sur les notes : ")
+        let i = 0
+        for(let éléve of éléves){
+            i = i + 1
+            console.log(`La note maximal de ${éléve.name} est ${maximum(éléve)} sa note minimum est ${minimum(éléve)}`)
+            if(i >= 3){
+                break
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*
+       function Ispalyndrome(str){
+            let mot = str.toLowerCase()
+            palindrome = mot.split('').reverse().join('');
+            if (mot === palindrome){
+                return true
+            } else {
+                return false
+                return palindrome
+            }
+
+
+       }
+       
+
+        const listes = ['kayak', 'SOS', 'bateau', 'mamam']
+
+       for (let liste of listes ){
+            if (Ispalyndrome(liste)){
+                console.log(`le mot ${liste} est un palindrome`)
+            } else {
+                console.log(`Le mot ${liste} n'est pas un palindrome -> ${palindrome}`)
+            }
+       }
+*/
+
+       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /*
+            function random (min, max) {
+                return Math.random() * (max - min) + min;
+            }
+
+            const solution = Math.round(random(1, 10))
+
+            function IsRight (n){
+                return solution === n 
+            }
+            
+            function guess(){
+                const number = prompt("Trouvez le nombre cacher entre 0 et 10 : ") * 1
+                return IsRight(number)
+            }
+        
+
+            for (let i = 1; i <= 3; i++){
+                let restant = 3 - i 
+                if (guess()){
+                    console.log(`Bravo vous avez trouvez le nombre secret ${solution} en ${i} coups`)
+                    break;       
+                } else if (i === 3){
+                    console.log(`Vous avez perdu le nomrbe secret etait ${solution}`)
+                } else {
+                    console.log(`Ce n'est pas le nombre secret il vous reste ${restant} essaie`)
+                }
+            }
+
+        */
+
+
+
+
+
+
+    </script>
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body>
+</body>
+</html>
